@@ -1,22 +1,2 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="290" viewBox="0 0 800 290"><defs><filter id="sh" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/></filter></defs><rect width="800" height="290" rx="10" fill="#161b22"/><text x="32" y="38" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Recent Activity</text>
-<rect x="32" y="62" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
-<circle cx="42" cy="82" r="4" fill="#3fb950"/>
-<text x="56" y="80" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in Spotium</text>
-<text x="56" y="96" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-<rect x="32" y="106" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
-<circle cx="42" cy="126" r="4" fill="#3fb950"/>
-<text x="56" y="124" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
-<text x="56" y="140" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-<rect x="32" y="150" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
-<circle cx="42" cy="170" r="4" fill="#3fb950"/>
-<text x="56" y="168" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in Spotium</text>
-<text x="56" y="184" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-<rect x="32" y="194" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
-<circle cx="42" cy="214" r="4" fill="#3fb950"/>
-<text x="56" y="212" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
-<text x="56" y="228" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-<rect x="32" y="238" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
-<circle cx="42" cy="258" r="4" fill="#3fb950"/>
-<text x="56" y="256" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
-<text x="56" y="272" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="90" viewBox="0 0 800 90"><defs><linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1"/><stop offset="100%" style="stop-color:#3fb950;stop-opacity:1"/></linearGradient><filter id="sh" x="-2%" y="-2%" width="104%" height="104%"><feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/></filter></defs><rect width="800" height="90" rx="12" fill="#161b22"/><text x="40" y="40" fill="#f0f6fc" font-size="18" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Recent Activity</text>
+<text x="40" y="65" fill="#8b949e" font-size="14" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">No recent activity</text></svg>

@@ -12,8 +12,6 @@ LANG_COLORS = {
     "CSS": "#563d7c", "Vue": "#41b883", "Svelte": "#ff3e00",
     "PowerShell": "#012456", "Batchfile": "#C1F12E", "Dockerfile": "#384d54",
     "Makefile": "#427819", "Markdown": "#083fa1", "TeX": "#3D6117",
-    "Assembly": "#6E4C13", "Elixir": "#6e4a7e", "Clojure": "#db5855",
-    "Objective-C": "#438eff", "Solidity": "#AA6746", "Terraform": "#623ce4",
 }
 
 
@@ -24,8 +22,9 @@ def _esc(s):
 class Renderer:
     def __init__(self, theme="dark"):
         self.t = get_theme(theme)
-        self.W = 800
-        self.PAD = 40
+        self.W = 1200
+        self.PAD = 60
+        self.INNER = self.W - self.PAD * 2
 
     def _wrap(self, content, h):
         t = self.t
@@ -36,11 +35,8 @@ class Renderer:
             f'<stop offset="0%" style="stop-color:{t["gradient_start"]};stop-opacity:1"/>'
             f'<stop offset="100%" style="stop-color:{t["gradient_end"]};stop-opacity:1"/>'
             f'</linearGradient>'
-            f'<filter id="sh" x="-2%" y="-2%" width="104%" height="104%">'
-            f'<feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>'
-            f'</filter>'
             f'</defs>'
-            f'<rect width="{self.W}" height="{h}" rx="12" fill="{t["bg_card"]}"/>'
+            f'<rect width="{self.W}" height="{h}" rx="14" fill="{t["bg_card"]}"/>'
             f'{content}'
             f'</svg>'
         )
@@ -48,12 +44,12 @@ class Renderer:
     def _title(self, y, text):
         return (
             f'<text x="{self.PAD}" y="{y}" fill="{self.t["text"]}" '
-            f'font-size="18" font-weight="700" '
+            f'font-size="20" font-weight="700" '
             f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">'
             f'{_esc(text)}</text>'
         )
 
-    def _label(self, x, y, text, size=13, color=None, bold=False, anchor="start"):
+    def _label(self, x, y, text, size=14, color=None, bold=False, anchor="start"):
         c = color or self.t["text_muted"]
         fw = "bold" if bold else "normal"
         return (
@@ -63,7 +59,7 @@ class Renderer:
         )
 
     def _card(self, x, y, w, h):
-        return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="{self.t["bg"]}" opacity="0.6"/>'
+        return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="12" fill="{self.t["bg"]}" opacity="0.5"/>'
 
     def _accent_line(self, x, y, w):
         return f'<rect x="{x}" y="{y}" width="{w}" height="3" rx="1.5" fill="url(#accent-grad)"/>'
@@ -71,7 +67,7 @@ class Renderer:
     # ── Languages ──────────────────────────────────────────
     def render_languages(self, data):
         if not data:
-            return self._wrap(self._title(40, "Most Used Languages") + "\n" + self._label(self.PAD, 65, "No data available", 14, self.t["text_muted"]), 90)
+            return self._wrap(self._title(40, "Most Used Languages") + "\n" + self._label(self.PAD, 70, "No data available", 15, self.t["text_muted"]), 100)
 
         total = sum(data.values())
         sorted_langs = sorted(data.items(), key=lambda x: x[1], reverse=True)
@@ -82,28 +78,25 @@ class Renderer:
                 continue
             items.append((lang, pct, LANG_COLORS.get(lang, "#ccc")))
 
-        bar_h = 22
-        gap = 14
-        title_y = 30
-        accent_y = title_y + 10
-        start_y = accent_y + 20
+        bar_h = 28
+        gap = 16
+        title_y = 32
+        accent_y = title_y + 12
+        start_y = accent_y + 24
         chart_h = len(items) * (bar_h + gap) - gap
-        total_h = start_y + chart_h + 30
+        total_h = start_y + chart_h + 40
 
         content = self._title(title_y, "Most Used Languages") + "\n"
-        content += self._accent_line(self.PAD, accent_y, 120) + "\n"
-        content += self._card(self.PAD - 8, start_y - 12, self.W - self.PAD * 2 + 16, chart_h + 24) + "\n"
+        content += self._accent_line(self.PAD, accent_y, 140) + "\n"
+        content += self._card(self.PAD - 8, start_y - 16, self.INNER + 16, chart_h + 32) + "\n"
 
-        bar_w = self.W - self.PAD * 2 - 160
+        bar_w = self.INNER - 200
         y = start_y
-        for i, (lang, pct, color) in enumerate(items):
-            w = max(6, int(bar_w * pct / 100))
-            # bar
-            content += f'<rect x="{self.PAD + 4}" y="{y}" width="{w}" height="{bar_h}" rx="5" fill="{color}" opacity="0.9"/>\n'
-            # lang name
-            content += self._label(self.PAD + w + 16, y + bar_h - 6, lang, 14, self.t["text"], bold=True) + "\n"
-            # percentage
-            content += self._label(self.W - self.PAD, y + bar_h - 6, f"{pct}%", 14, self.t["text_muted"], anchor="end") + "\n"
+        for lang, pct, color in items:
+            w = max(8, int(bar_w * pct / 100))
+            content += f'<rect x="{self.PAD + 4}" y="{y}" width="{w}" height="{bar_h}" rx="6" fill="{color}" opacity="0.9"/>\n'
+            content += self._label(self.PAD + w + 18, y + bar_h - 8, lang, 15, self.t["text"], bold=True) + "\n"
+            content += self._label(self.W - self.PAD, y + bar_h - 8, f"{pct}%", 15, self.t["text_muted"], anchor="end") + "\n"
             y += bar_h + gap
 
         return self._wrap(content, total_h)
@@ -111,7 +104,7 @@ class Renderer:
     # ── Stats ──────────────────────────────────────────────
     def render_stats(self, stats):
         if not stats:
-            return self._wrap(self._title(40, "GitHub Statistics") + "\n" + self._label(self.PAD, 65, "No stats available", 14, self.t["text_muted"]), 90)
+            return self._wrap(self._title(40, "GitHub Statistics") + "\n" + self._label(self.PAD, 70, "No stats available", 15, self.t["text_muted"]), 100)
 
         metrics = [
             ("Repos", str(stats["public_repos"]), self.t["accent"]),
@@ -120,23 +113,23 @@ class Renderer:
             ("Followers", str(stats["followers"]), self.t["accent_green"]),
         ]
 
-        title_y = 30
-        accent_y = title_y + 10
-        card_gap = 16
-        card_w = (self.W - self.PAD * 2 - card_gap * 3) // 4
-        card_h = 90
-        cy = accent_y + 24
+        title_y = 32
+        accent_y = title_y + 12
+        card_gap = 20
+        card_w = (self.INNER - card_gap * 3) // 4
+        card_h = 110
+        cy = accent_y + 28
 
         content = self._title(title_y, "GitHub Statistics") + "\n"
-        content += self._accent_line(self.PAD, accent_y, 120) + "\n"
+        content += self._accent_line(self.PAD, accent_y, 140) + "\n"
 
         for i, (label, value, color) in enumerate(metrics):
             x = self.PAD + i * (card_w + card_gap)
             content += self._card(x, cy, card_w, card_h) + "\n"
-            content += self._label(x + card_w // 2, cy + 42, value, 34, color, bold=True, anchor="middle") + "\n"
-            content += self._label(x + card_w // 2, cy + 70, label, 13, self.t["text_muted"], anchor="middle") + "\n"
+            content += self._label(x + card_w // 2, cy + 50, value, 40, color, bold=True, anchor="middle") + "\n"
+            content += self._label(x + card_w // 2, cy + 82, label, 14, self.t["text_muted"], anchor="middle") + "\n"
 
-        total_h = cy + card_h + 24
+        total_h = cy + card_h + 30
         return self._wrap(content, total_h)
 
     # ── Streak ─────────────────────────────────────────────
@@ -145,18 +138,18 @@ class Renderer:
 
     def render_streak(self, streak):
         if not streak:
-            return self._wrap(self._title(40, "Contribution Streak") + "\n" + self._label(self.PAD, 65, "No streak data", 14, self.t["text_muted"]), 90)
+            return self._wrap(self._title(40, "Contribution Streak") + "\n" + self._label(self.PAD, 70, "No streak data", 15, self.t["text_muted"]), 100)
 
         t = self.t
-        title_y = 30
-        accent_y = title_y + 10
-        card_gap = 16
-        card_w = (self.W - self.PAD * 2 - card_gap * 2) // 3
-        card_h = 90
-        cy = accent_y + 24
+        title_y = 32
+        accent_y = title_y + 12
+        card_gap = 20
+        card_w = (self.INNER - card_gap * 2) // 3
+        card_h = 110
+        cy = accent_y + 28
 
         content = self._title(title_y, "Contribution Streak") + "\n"
-        content += self._accent_line(self.PAD, accent_y, 120) + "\n"
+        content += self._accent_line(self.PAD, accent_y, 140) + "\n"
 
         metrics = [
             ("Longest Streak", self._plural(streak["longest_streak"], "day"), t["accent_orange"]),
@@ -167,29 +160,29 @@ class Renderer:
         for i, (label, value, color) in enumerate(metrics):
             x = self.PAD + i * (card_w + card_gap)
             content += self._card(x, cy, card_w, card_h) + "\n"
-            content += self._label(x + card_w // 2, cy + 42, value, 28, color, bold=True, anchor="middle") + "\n"
-            content += self._label(x + card_w // 2, cy + 70, label, 13, t["text_muted"], anchor="middle") + "\n"
+            content += self._label(x + card_w // 2, cy + 50, value, 32, color, bold=True, anchor="middle") + "\n"
+            content += self._label(x + card_w // 2, cy + 82, label, 14, t["text_muted"], anchor="middle") + "\n"
 
-        total_h = cy + card_h + 24
+        total_h = cy + card_h + 30
         return self._wrap(content, total_h)
 
     # ── Top Repos ──────────────────────────────────────────
     def render_top_repos(self, repos):
         if not repos:
-            return self._wrap(self._title(40, "Top Repositories") + "\n" + self._label(self.PAD, 65, "No repos to display", 14, self.t["text_muted"]), 90)
+            return self._wrap(self._title(40, "Top Repositories") + "\n" + self._label(self.PAD, 70, "No repos to display", 15, self.t["text_muted"]), 100)
 
-        cols = 2
-        card_gap = 16
-        card_w = (self.W - self.PAD * 2 - card_gap) // cols
-        card_h = 100
-        title_y = 30
-        accent_y = title_y + 10
-        cy = accent_y + 24
+        cols = 3
+        card_gap = 20
+        card_w = (self.INNER - card_gap * (cols - 1)) // cols
+        card_h = 120
+        title_y = 32
+        accent_y = title_y + 12
+        cy = accent_y + 28
         rows = (len(repos) + cols - 1) // cols
-        total_h = cy + rows * (card_h + card_gap) + 8
+        total_h = cy + rows * (card_h + card_gap) + 12
 
         content = self._title(title_y, "Top Repositories") + "\n"
-        content += self._accent_line(self.PAD, accent_y, 120) + "\n"
+        content += self._accent_line(self.PAD, accent_y, 140) + "\n"
 
         for i, repo in enumerate(repos):
             row = i // cols
@@ -198,27 +191,24 @@ class Renderer:
             y = cy + row * (card_h + card_gap)
 
             content += self._card(x, y, card_w, card_h) + "\n"
-            # name
-            content += self._label(x + 18, y + 28, repo["name"], 16, self.t["accent"], bold=True) + "\n"
-            # description
-            desc = repo["description"][:55] + ("..." if len(repo["description"]) > 55 else "")
+            content += self._label(x + 18, y + 30, repo["name"], 18, self.t["accent"], bold=True) + "\n"
+            desc = repo["description"][:50] + ("..." if len(repo["description"]) > 50 else "")
             if desc:
-                content += self._label(x + 18, y + 50, desc, 12, self.t["text_muted"]) + "\n"
-            # stars + language
-            content += self._label(x + 18, y + 78, "\u2605 " + str(repo["stars"]), 13, self.t["accent_orange"]) + "\n"
+                content += self._label(x + 18, y + 54, desc, 13, self.t["text_muted"]) + "\n"
+            content += self._label(x + 18, y + 88, "\u2605 " + str(repo["stars"]), 14, self.t["accent_orange"]) + "\n"
             if repo["language"]:
                 lc = LANG_COLORS.get(repo["language"], "#ccc")
-                content += f'<circle cx="{x + 90}" cy="{y + 73}" r="5" fill="{lc}"/>\n'
-                content += self._label(x + 100, y + 78, repo["language"], 12, self.t["text_muted"]) + "\n"
+                content += f'<circle cx="{x + 90}" cy="{y + 83}" r="6" fill="{lc}"/>\n'
+                content += self._label(x + 102, y + 88, repo["language"], 13, self.t["text_muted"]) + "\n"
 
         return self._wrap(content, total_h)
 
     # ── Activity ───────────────────────────────────────────
     def render_activity(self, events):
-        # Filter out "Pushed 0 commits" events
+        # Filter out empty PushEvents
         events = [e for e in events if not (e["type"] == "PushEvent" and e.get("count", 0) == 0)]
         if not events:
-            return self._wrap(self._title(40, "Recent Activity") + "\n" + self._label(self.PAD, 65, "No recent activity", 14, self.t["text_muted"]), 90)
+            return self._wrap(self._title(40, "Recent Activity") + "\n" + self._label(self.PAD, 70, "No recent activity", 15, self.t["text_muted"]), 100)
 
         labels = {
             "PushEvent": "Pushed", "IssuesEvent": "Opened issue",
@@ -233,14 +223,14 @@ class Renderer:
             "IssueCommentEvent": self.t["accent_purple"], "ReleaseEvent": self.t["accent_orange"],
         }
 
-        row_h = 52
-        title_y = 30
-        accent_y = title_y + 10
-        cy = accent_y + 24
-        total_h = cy + len(events) * row_h + 12
+        row_h = 60
+        title_y = 32
+        accent_y = title_y + 12
+        cy = accent_y + 28
+        total_h = cy + len(events) * row_h + 16
 
         content = self._title(title_y, "Recent Activity") + "\n"
-        content += self._accent_line(self.PAD, accent_y, 120) + "\n"
+        content += self._accent_line(self.PAD, accent_y, 140) + "\n"
 
         for i, ev in enumerate(events):
             y = cy + i * row_h
@@ -250,12 +240,12 @@ class Renderer:
 
             if ev["type"] == "PushEvent":
                 detail = f"{ev.get('count', 0)} commit" + ("s" if ev.get("count", 0) != 1 else "")
-                msg = ev.get("message", "")[:45]
+                msg = ev.get("message", "")[:50]
                 if msg:
                     detail += f" - {msg}"
             elif ev["type"] == "IssuesEvent":
                 detail = f"{ev.get('action', '')} issue"
-                title = ev.get("title", "")[:45]
+                title = ev.get("title", "")[:50]
                 if title:
                     detail += f" - {title}"
             elif ev["type"] == "CreateEvent":
@@ -266,7 +256,7 @@ class Renderer:
                 detail = f"forked {ev.get('forked_repo', '').split('/')[-1]}"
             elif ev["type"] == "PullRequestEvent":
                 detail = f"{ev.get('action', '')} PR"
-                title = ev.get("title", "")[:45]
+                title = ev.get("title", "")[:50]
                 if title:
                     detail += f" - {title}"
             elif ev["type"] == "ReleaseEvent":
@@ -274,21 +264,18 @@ class Renderer:
             else:
                 detail = repo_name
 
-            # row background
-            content += f'<rect x="{self.PAD}" y="{y}" width="{self.W - self.PAD * 2}" height="{row_h - 6}" rx="8" fill="{self.t["bg"]}" opacity="0.5"/>\n'
-            # dot
-            content += f'<circle cx="{self.PAD + 14}" cy="{y + (row_h - 6) // 2}" r="5" fill="{dot_color}"/>\n'
-            # label
-            content += self._label(self.PAD + 30, y + 20, f"{label} in {repo_name}", 13, self.t["text"], bold=True) + "\n"
-            # detail
-            content += self._label(self.PAD + 30, y + 38, detail, 12, self.t["text_muted"]) + "\n"
+            # row
+            content += f'<rect x="{self.PAD}" y="{y}" width="{self.INNER}" height="{row_h - 6}" rx="10" fill="{self.t["bg"]}" opacity="0.5"/>\n'
+            content += f'<circle cx="{self.PAD + 16}" cy="{y + (row_h - 6) // 2}" r="6" fill="{dot_color}"/>\n'
+            content += self._label(self.PAD + 34, y + 24, f"{label} in {repo_name}", 15, self.t["text"], bold=True) + "\n"
+            content += self._label(self.PAD + 34, y + 44, detail, 13, self.t["text_muted"]) + "\n"
 
         return self._wrap(content, total_h)
 
     # ── Combined ───────────────────────────────────────────
     def render_combined(self, svgs):
         import re
-        gap = 20
+        gap = 24
         total_h = 0
         heights = []
         for svg in svgs:
@@ -299,6 +286,12 @@ class Renderer:
 
         combined = (
             f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.W}" height="{total_h}" viewBox="0 0 {self.W} {total_h}">'
+            f'<defs>'
+            f'<linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="0%">'
+            f'<stop offset="0%" style="stop-color:{self.t["gradient_start"]};stop-opacity:1"/>'
+            f'<stop offset="100%" style="stop-color:{self.t["gradient_end"]};stop-opacity:1"/>'
+            f'</linearGradient>'
+            f'</defs>'
             f'<rect width="{self.W}" height="{total_h}" fill="{self.t["bg"]}"/>'
         )
         y = 0
@@ -310,6 +303,8 @@ class Renderer:
                 if s.startswith("<svg") or s.startswith("<?xml") or s.endswith("</svg>"):
                     continue
                 if "<defs>" in s or "</defs>" in s:
+                    continue
+                if "linearGradient" in s or "<stop" in s:
                     continue
                 clean.append(line)
             h = heights.pop(0)
