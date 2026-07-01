@@ -1,22 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="374" viewBox="0 0 1000 374"><defs><linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#58a6ff"/><stop offset="100%" stop-color="#3fb950"/></linearGradient></defs><rect width="1000" height="374" rx="14" fill="#161b22"/><text x="50" y="40" fill="#f0f6fc" font-size="22" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Most Used Languages</text>
-<rect x="50" y="52" width="140" height="3" rx="2" fill="url(#ag)" opacity="0.8"/>
-<rect x="42" y="86" width="916" height="266" rx="10" fill="#0d1117" opacity="0.5"/>
-<rect x="50" y="100" width="265" height="28" rx="6" fill="#012456" opacity="0.9"/>
-<text x="329" y="121" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">PowerShell</text>
-<text x="950" y="121" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">36.9%</text>
-<rect x="50" y="142" width="151" height="28" rx="6" fill="#3572A5" opacity="0.9"/>
-<text x="215" y="163" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Python</text>
-<text x="950" y="163" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">21.1%</text>
-<rect x="50" y="184" width="128" height="28" rx="6" fill="#f1e05a" opacity="0.9"/>
-<text x="192" y="205" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">JavaScript</text>
-<text x="950" y="205" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">17.8%</text>
-<rect x="50" y="226" width="97" height="28" rx="6" fill="#563d7c" opacity="0.9"/>
-<text x="161" y="247" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">CSS</text>
-<text x="950" y="247" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">13.6%</text>
-<rect x="50" y="268" width="59" height="28" rx="6" fill="#e34c26" opacity="0.9"/>
-<text x="123" y="289" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">HTML</text>
-<text x="950" y="289" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">8.3%</text>
-<rect x="50" y="310" width="16" height="28" rx="6" fill="#C1F12E" opacity="0.9"/>
-<text x="80" y="331" fill="#f0f6fc" font-size="15" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Batchfile</text>
-<text x="950" y="331" fill="#8b949e" font-size="15" font-weight="normal" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">2.3%</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="386" viewBox="0 0 1000 386"><defs><linearGradient id="ag" x1="0" y1="0" x2="100%" y2="0"><stop offset="0" stop-color="#58a6ff"/><stop offset="100%" stop-color="#3fb950"/></linearGradient><linearGradient id="ag2" x1="0" y1="0" x2="0" y2="100%"><stop offset="0" stop-color="#58a6ff" stop-opacity="0.15"/><stop offset="100%" stop-color="#3fb950" stop-opacity="0"/></linearGradient></defs><rect width="1000" height="386" rx="14" fill="#161b22"/><rect x="0" y="0" width="4" height="386" rx="2" fill="url(#ag)"/><text x="50" y="40" fill="#f0f6fc" font-size="22" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Most Used Languages</text><rect x="50" y="52" width="140" height="3" rx="1.5" fill="url(#ag)"/><rect x="4" y="0" width="996" height="80" rx="0" fill="url(#ag2)"/><rect x="44" y="86" width="912" height="278" rx="10" fill="#0d1117" opacity="0.6"/><rect x="50" y="100" width="263" height="30" rx="6" fill="#012456" opacity="0.85"/>
+<rect x="52" y="128" width="263" height="4" rx="2" fill="#012456" opacity="0.15"/>
+<circle cx="331" cy="115" r="5" fill="#012456"/>
+<text x="343" y="123" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">PowerShell</text>
+<rect x="904" y="102" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="119" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">37.7%</text>
+<rect x="50" y="144" width="147" height="30" rx="6" fill="#3572A5" opacity="0.85"/>
+<rect x="52" y="172" width="147" height="4" rx="2" fill="#3572A5" opacity="0.15"/>
+<circle cx="215" cy="159" r="5" fill="#3572A5"/>
+<text x="227" y="167" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Python</text>
+<rect x="904" y="146" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="163" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">21.1%</text>
+<rect x="50" y="188" width="128" height="30" rx="6" fill="#f1e05a" opacity="0.85"/>
+<rect x="52" y="216" width="128" height="4" rx="2" fill="#f1e05a" opacity="0.15"/>
+<circle cx="196" cy="203" r="5" fill="#f1e05a"/>
+<text x="208" y="211" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">JavaScript</text>
+<rect x="904" y="190" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="207" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">18.4%</text>
+<rect x="50" y="232" width="92" height="30" rx="6" fill="#563d7c" opacity="0.85"/>
+<rect x="52" y="260" width="92" height="4" rx="2" fill="#563d7c" opacity="0.15"/>
+<circle cx="160" cy="247" r="5" fill="#563d7c"/>
+<text x="172" y="255" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">CSS</text>
+<rect x="904" y="234" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="251" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">13.2%</text>
+<rect x="50" y="276" width="55" height="30" rx="6" fill="#e34c26" opacity="0.85"/>
+<rect x="52" y="304" width="55" height="4" rx="2" fill="#e34c26" opacity="0.15"/>
+<circle cx="123" cy="291" r="5" fill="#e34c26"/>
+<text x="135" y="299" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">HTML</text>
+<rect x="904" y="278" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="295" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">7.9%</text>
+<rect x="50" y="320" width="12" height="30" rx="6" fill="#C1F12E" opacity="0.85"/>
+<rect x="52" y="348" width="12" height="4" rx="2" fill="#C1F12E" opacity="0.15"/>
+<circle cx="80" cy="335" r="5" fill="#C1F12E"/>
+<text x="92" y="343" fill="#f0f6fc" font-size="14" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="start">Batchfile</text>
+<rect x="904" y="322" width="46" height="22" rx="11" fill="#8b949e" opacity="0.12"/><text x="948" y="339" fill="#8b949e" font-size="12" font-weight="bold" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="end">1.8%</text>
 </svg>
