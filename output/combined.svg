@@ -1,130 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1020" viewBox="0 0 800 1020">
-  <rect width="800" height="1020" fill="#0d1117"/>
-  <g transform="translate(0, 0)">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-  <rect width="800" height="206" rx="12" fill="#161b22" filter="url(#shadow)"/>
-  <text x="20" y="22" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Most Used Languages</text>
-<rect x="20" y="35" width="228" height="18" rx="4" fill="#012456"/>
-<text x="258" y="50" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">PowerShell</text>
-<text x="780" y="50" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">38.0%</text>
-<rect x="20" y="61" width="112" height="18" rx="4" fill="#3572A5"/>
-<text x="142" y="76" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Python</text>
-<text x="780" y="76" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">18.7%</text>
-<rect x="20" y="87" width="110" height="18" rx="4" fill="#f1e05a"/>
-<text x="140" y="102" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">JavaScript</text>
-<text x="780" y="102" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">18.4%</text>
-<rect x="20" y="113" width="85" height="18" rx="4" fill="#563d7c"/>
-<text x="115" y="128" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">CSS</text>
-<text x="780" y="128" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">14.2%</text>
-<rect x="20" y="139" width="51" height="18" rx="4" fill="#e34c26"/>
-<text x="81" y="154" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">HTML</text>
-<text x="780" y="154" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">8.6%</text>
-<rect x="20" y="165" width="12" height="18" rx="4" fill="#C1F12E"/>
-<text x="42" y="180" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Batchfile</text>
-<text x="780" y="180" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">2.1%</text>
-
-  </g>
-  <g transform="translate(0, 222)">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-  <rect width="800" height="150" rx="12" fill="#161b22" filter="url(#shadow)"/>
-  <text x="20" y="30" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">GitHub Statistics</text>
-<rect x="20" y="50" width="185" height="70" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="112" y="80" fill="#58a6ff" font-size="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">3</text>
-<text x="112" y="105" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Repositories</text>
-<rect x="215" y="50" width="185" height="70" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="307" y="80" fill="#d29922" font-size="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
-<text x="307" y="105" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Stars Earned</text>
-<rect x="410" y="50" width="185" height="70" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="502" y="80" fill="#bc8cff" font-size="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
-<text x="502" y="105" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Total Forks</text>
-<rect x="605" y="50" width="185" height="70" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="697" y="80" fill="#3fb950" font-size="26" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
-<text x="697" y="105" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Followers</text>
-
-  </g>
-  <g transform="translate(0, 388)">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-  <rect width="800" height="150" rx="12" fill="#161b22" filter="url(#shadow)"/>
-  <text x="20" y="30" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Contribution Streak</text>
-<rect x="20" y="48" width="180" height="72" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="110" y="78" fill="#d29922" font-size="22" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">1 days</text>
-<text x="110" y="104" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Longest Streak</text>
-<rect x="212" y="48" width="180" height="72" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="302" y="78" fill="#3fb950" font-size="22" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0 days</text>
-<text x="302" y="104" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Current Streak</text>
-<rect x="404" y="48" width="180" height="72" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="494" y="78" fill="#bc8cff" font-size="22" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">1</text>
-<text x="494" y="104" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Total Contributions</text>
-
-  </g>
-  <g transform="translate(0, 554)">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-  <rect width="800" height="230" rx="12" fill="#161b22" filter="url(#shadow)"/>
-  <text x="20" y="30" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Top Repositories</text>
-<rect x="20" y="50" width="375" height="80" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="34" y="72" fill="#58a6ff" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">AbinashKerketta</text>
-<text x="34" y="92" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">My GitHub profile README</text>
-<text x="34" y="112" fill="#d29922" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text>
-<rect x="405" y="50" width="375" height="80" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="419" y="72" fill="#58a6ff" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Spotium</text>
-<text x="419" y="92" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Spotify desktop enhancement patcher with local web GUI</text>
-<text x="419" y="112" fill="#d29922" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text>
-<circle cx="505" cy="107" r="5" fill="#012456"/>
-<text x="515" y="112" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">PowerShell</text>
-<rect x="20" y="140" width="375" height="80" rx="8" fill="#0d1117" opacity="0.6"/>
-<text x="34" y="162" fill="#58a6ff" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">GitHubWall</text>
-<text x="34" y="182" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Personal GitHub README stats generator with auto-updating SVG banners</text>
-<text x="34" y="202" fill="#d29922" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text>
-<circle cx="120" cy="197" r="5" fill="#3572A5"/>
-<text x="130" y="202" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Python</text>
-
-  </g>
-  <g transform="translate(0, 800)">
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#58a6ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3fb950;stop-opacity:1" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
-    </filter>
-  <rect width="800" height="204" rx="12" fill="#161b22" filter="url(#shadow)"/>
-  <text x="20" y="30" fill="#f0f6fc" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Recent Activity</text>
-<circle cx="35" cy="54" r="5" fill="#3fb950"/>
-<text x="55" y="59" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in AbinashKerketta</text>
-<text x="55" y="75" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
-<circle cx="35" cy="90" r="5" fill="#bc8cff"/>
-<text x="55" y="95" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Created in AbinashKerketta</text>
-<text x="55" y="111" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">branch main</text>
-<circle cx="35" cy="126" r="5" fill="#bc8cff"/>
-<text x="55" y="131" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Created in Spotium</text>
-<text x="55" y="147" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">branch main</text>
-<circle cx="35" cy="162" r="5" fill="#bc8cff"/>
-<text x="55" y="167" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Created in GitHubWall</text>
-<text x="55" y="183" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">branch main</text>
-
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200"><rect width="800" height="1200" fill="#0d1117"/><g transform="translate(0,0)"><rect x="32" y="58" width="226" height="18" rx="4" fill="#012456" opacity="0.85"/>
+<text x="268" y="72" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">PowerShell</text>
+<text x="768" y="72" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">36.8%</text>
+<rect x="32" y="86" width="133" height="18" rx="4" fill="#3572A5" opacity="0.85"/>
+<text x="175" y="100" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Python</text>
+<text x="768" y="100" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">21.7%</text>
+<rect x="32" y="114" width="109" height="18" rx="4" fill="#f1e05a" opacity="0.85"/>
+<text x="151" y="128" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">JavaScript</text>
+<text x="768" y="128" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">17.7%</text>
+<rect x="32" y="142" width="83" height="18" rx="4" fill="#563d7c" opacity="0.85"/>
+<text x="125" y="156" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">CSS</text>
+<text x="768" y="156" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">13.5%</text>
+<rect x="32" y="170" width="51" height="18" rx="4" fill="#e34c26" opacity="0.85"/>
+<text x="93" y="184" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">HTML</text>
+<text x="768" y="184" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">8.3%</text>
+<rect x="32" y="198" width="12" height="18" rx="4" fill="#C1F12E" opacity="0.85"/>
+<text x="54" y="212" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Batchfile</text>
+<text x="768" y="212" fill="#8b949e" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="end">2.0%</text></g>
+<g transform="translate(0,248)"><rect x="32" y="62" width="175" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="119" y="100" fill="#58a6ff" font-size="28" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">3</text>
+<text x="119" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Repositories</text>
+<rect x="219" y="62" width="175" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="306" y="100" fill="#d29922" font-size="28" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
+<text x="306" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Stars Earned</text>
+<rect x="406" y="62" width="175" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="493" y="100" fill="#bc8cff" font-size="28" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
+<text x="493" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Total Forks</text>
+<rect x="593" y="62" width="175" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="680" y="100" fill="#3fb950" font-size="28" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0</text>
+<text x="680" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Followers</text></g>
+<g transform="translate(0,426)"><rect x="32" y="62" width="237" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="150" y="100" fill="#d29922" font-size="24" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">1 days</text>
+<text x="150" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Longest Streak</text>
+<rect x="281" y="62" width="237" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="399" y="100" fill="#3fb950" font-size="24" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">0 days</text>
+<text x="399" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Current Streak</text>
+<rect x="530" y="62" width="237" height="80" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="648" y="100" fill="#bc8cff" font-size="24" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="middle">1</text>
+<text x="648" y="124" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="middle">Total Contributions</text></g>
+<g transform="translate(0,604)"><rect x="32" y="62" width="362" height="90" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="48" y="88" fill="#58a6ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">Spotium</text>
+<text x="48" y="108" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Spotify desktop enhancement patcher with local web GUI</text>
+<text x="48" y="134" fill="#d29922" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text>
+<circle cx="122" cy="129" r="5" fill="#012456"/>
+<text x="132" y="134" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">PowerShell</text>
+<rect x="406" y="62" width="362" height="90" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="422" y="88" fill="#58a6ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">GitHubWall</text>
+<text x="422" y="108" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Personal GitHub README stats generator with auto-updating SV...</text>
+<text x="422" y="134" fill="#d29922" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text>
+<circle cx="496" cy="129" r="5" fill="#3572A5"/>
+<text x="506" y="134" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Python</text>
+<rect x="32" y="164" width="362" height="90" rx="8" fill="#0d1117" opacity="0.5"/>
+<text x="48" y="190" fill="#58a6ff" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="bold" text-anchor="start">AbinashKerketta</text>
+<text x="48" y="210" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">My GitHub profile README</text>
+<text x="48" y="236" fill="#d29922" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">â˜… 0</text></g>
+<g transform="translate(0,894)"><rect x="32" y="62" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
+<circle cx="42" cy="82" r="4" fill="#3fb950"/>
+<text x="56" y="80" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in Spotium</text>
+<text x="56" y="96" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
+<rect x="32" y="106" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
+<circle cx="42" cy="126" r="4" fill="#3fb950"/>
+<text x="56" y="124" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
+<text x="56" y="140" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
+<rect x="32" y="150" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
+<circle cx="42" cy="170" r="4" fill="#3fb950"/>
+<text x="56" y="168" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in Spotium</text>
+<text x="56" y="184" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
+<rect x="32" y="194" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
+<circle cx="42" cy="214" r="4" fill="#3fb950"/>
+<text x="56" y="212" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
+<text x="56" y="228" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text>
+<rect x="32" y="238" width="736" height="40" rx="6" fill="#0d1117" opacity="0.4"/>
+<circle cx="42" cy="258" r="4" fill="#3fb950"/>
+<text x="56" y="256" fill="#f0f6fc" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">Pushed in GitHubWall</text>
+<text x="56" y="272" fill="#8b949e" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-weight="normal" text-anchor="start">0 commits</text></g>
 </svg>
