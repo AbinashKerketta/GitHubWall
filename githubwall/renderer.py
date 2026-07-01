@@ -13,6 +13,8 @@ LANG_COLORS = {
     "PowerShell": "#012456", "Batchfile": "#C1F12E",
 }
 
+STAR = "&#9733;"  # Use XML entity to avoid encoding issues
+
 
 def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -22,8 +24,8 @@ class Renderer:
     def __init__(self, theme="dark"):
         self.t = get_theme(theme)
         self.W = 1000
-        self.P = 50  # padding
-        self.U = self.W - self.P * 2  # usable inner width
+        self.P = 50
+        self.U = self.W - self.P * 2
 
     def _svg(self, body, h):
         t = self.t
@@ -31,7 +33,8 @@ class Renderer:
             f'<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="{h}" viewBox="0 0 {self.W} {h}">'
             f'<defs>'
             f'<linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="0%">'
-            f'<stop offset="0%" stop-color="{t["gradient_start"]}"/><stop offset="100%" stop-color="{t["gradient_end"]}"/>'
+            f'<stop offset="0%" stop-color="{t["gradient_start"]}"/>'
+            f'<stop offset="100%" stop-color="{t["gradient_end"]}"/>'
             f'</linearGradient>'
             f'</defs>'
             f'<rect width="{self.W}" height="{h}" rx="14" fill="{t["bg_card"]}"/>'
@@ -39,170 +42,133 @@ class Renderer:
             f'</svg>'
         )
 
-    def _txt(self, x, y, text, size=14, color=None, bold=False, anchor="start"):
-        c = color or self.t["text"]
-        fw = "bold" if bold else "normal"
+    def _t(self, x, y, text, size=14, color=None, bold=False, anchor="start"):
         return (
-            f'<text x="{x}" y="{y}" fill="{c}" font-size="{size}" '
-            f'font-weight="{fw}" '
+            f'<text x="{x}" y="{y}" fill="{color or self.t["text"]}" font-size="{size}" '
+            f'font-weight="{"bold" if bold else "normal"}" '
             f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" '
             f'text-anchor="{anchor}">{esc(text)}</text>'
+        )
+
+    def _ts(self, x, y, prefix, text, size=14, color=None, anchor="start"):
+        """Text with a raw XML entity prefix (e.g. star) that won't be double-escaped."""
+        return (
+            f'<text x="{x}" y="{y}" fill="{color or self.t["text"]}" font-size="{size}" '
+            f'font-weight="normal" '
+            f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" '
+            f'text-anchor="{anchor}">{prefix}{esc(text)}</text>'
         )
 
     def _box(self, x, y, w, h):
         return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="{self.t["bg"]}" opacity="0.5"/>'
 
-    def _grad_bar(self, x, y, w, h):
-        return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="2" fill="url(#ag)" opacity="0.8"/>'
+    def _gl(self, x, y, w):
+        return f'<rect x="{x}" y="{y}" width="{w}" height="3" rx="2" fill="url(#ag)" opacity="0.8"/>'
+
+    def _sect(self, title):
+        return (
+            self._t(self.P, 40, title, 22, self.t["text"], bold=True) + "\n"
+            + self._gl(self.P, 52, 140) + "\n"
+        )
 
     # ── Languages ──────────────────────────────────────────
     def render_languages(self, data):
         if not data:
-            return self._svg(self._txt(self.P, 50, "No language data", 15, self.t["text_muted"]), 100)
-
+            return self._svg(self._t(self.P, 60, "No language data", 16, self.t["text_muted"]), 110)
         total = sum(data.values())
-        items = []
-        for lang, bc in sorted(data.items(), key=lambda x: x[1], reverse=True)[:8]:
-            pct = round((bc / total) * 100, 1)
-            if pct < 1:
-                continue
-            items.append((lang, pct, LANG_COLORS.get(lang, "#ccc")))
+        items = [(l, round((b/total)*100, 1), LANG_COLORS.get(l, "#ccc"))
+                 for l, b in sorted(data.items(), key=lambda x: x[1], reverse=True)[:8]
+                 if round((b/total)*100, 1) >= 1]
 
-        bar_h = 26
-        gap = 14
-        y0 = 90
-        chart_h = len(items) * (bar_h + gap) - gap
-        h = y0 + chart_h + 40
+        bar_h, gap = 28, 14
+        y0 = 100
+        ch = len(items) * (bar_h + gap) - gap
+        body = self._sect("Most Used Languages")
+        body += self._box(self.P-8, y0-14, self.U+16, ch+28) + "\n"
 
-        body = self._txt(self.P, 36, "Most Used Languages", 20, self.t["text"], bold=True)
-        body += self._grad_bar(self.P, 46, 130, 3)
-
-        bar_w_max = self.U - 180
+        bw = self.U - 180
         y = y0
         for lang, pct, color in items:
-            w = max(8, int(bar_w_max * pct / 100))
+            w = max(8, int(bw * pct / 100))
             body += f'<rect x="{self.P}" y="{y}" width="{w}" height="{bar_h}" rx="6" fill="{color}" opacity="0.9"/>\n'
-            body += self._txt(self.P + w + 12, y + bar_h - 7, lang, 14, self.t["text"], bold=True)
-            body += self._txt(self.W - self.P, y + bar_h - 7, f"{pct}%", 14, self.t["text_muted"], anchor="end")
+            body += self._t(self.P + w + 14, y + bar_h - 7, lang, 15, self.t["text"], bold=True) + "\n"
+            body += self._t(self.W - self.P, y + bar_h - 7, f"{pct}%", 15, self.t["text_muted"], anchor="end") + "\n"
             y += bar_h + gap
 
-        body += self._box(self.P - 5, y0 - 12, self.U + 10, chart_h + 24)
-
-        return self._svg(body, h)
+        return self._svg(body, y0 + ch + 36)
 
     # ── Stats ──────────────────────────────────────────────
     def render_stats(self, stats):
         if not stats:
-            return self._svg(self._txt(self.P, 50, "No stats", 15, self.t["text_muted"]), 100)
-
-        metrics = [
-            ("Repos", str(stats["public_repos"]), self.t["accent"]),
-            ("Stars", str(stats["total_stars"]), self.t["accent_orange"]),
-            ("Forks", str(stats["total_forks"]), self.t["accent_purple"]),
-            ("Followers", str(stats["followers"]), self.t["accent_green"]),
-        ]
-
-        g = 16
-        cw = (self.U - g * 3) // 4
-        ch = 100
-        cy = 90
-        h = cy + ch + 30
-
-        body = self._txt(self.P, 36, "GitHub Statistics", 20, self.t["text"], bold=True)
-        body += self._grad_bar(self.P, 46, 130, 3)
-
+            return self._svg(self._t(self.P, 60, "No stats available", 16, self.t["text_muted"]), 110)
+        metrics = [("Repos", str(stats["public_repos"]), self.t["accent"]),
+                   ("Stars", str(stats["total_stars"]), self.t["accent_orange"]),
+                   ("Forks", str(stats["total_forks"]), self.t["accent_purple"]),
+                   ("Followers", str(stats["followers"]), self.t["accent_green"])]
+        g, cw, ch, cy = 16, (self.U - 48) // 4, 110, 100
+        body = self._sect("GitHub Statistics")
         for i, (label, value, color) in enumerate(metrics):
             x = self.P + i * (cw + g)
-            body += self._box(x, cy, cw, ch)
-            body += self._txt(x + cw // 2, cy + 44, value, 36, color, bold=True, anchor="middle")
-            body += self._txt(x + cw // 2, cy + 74, label, 13, self.t["text_muted"], anchor="middle")
-
-        return self._svg(body, h)
+            body += self._box(x, cy, cw, ch) + "\n"
+            body += self._t(x + cw // 2, cy + 46, value, 38, color, bold=True, anchor="middle") + "\n"
+            body += self._t(x + cw // 2, cy + 78, label, 14, self.t["text_muted"], anchor="middle") + "\n"
+        return self._svg(body, cy + ch + 30)
 
     # ── Streak ─────────────────────────────────────────────
     def render_streak(self, streak):
         if not streak:
-            return self._svg(self._txt(self.P, 50, "No streak data", 15, self.t["text_muted"]), 100)
-
-        def pl(n, w):
-            return f"{n} {w}" + ("s" if n != 1 else "")
-
-        g = 16
-        cw = (self.U - g * 2) // 3
-        ch = 100
-        cy = 90
-        h = cy + ch + 30
-
-        body = self._txt(self.P, 36, "Contribution Streak", 20, self.t["text"], bold=True)
-        body += self._grad_bar(self.P, 46, 130, 3)
-
-        metrics = [
-            ("Longest Streak", pl(streak["longest_streak"], "day"), self.t["accent_orange"]),
-            ("Current Streak", pl(streak["current_streak"], "day"), self.t["accent_green"]),
-            ("Contributions", str(streak["total_contributions"]), self.t["accent_purple"]),
-        ]
+            return self._svg(self._t(self.P, 60, "No streak data", 16, self.t["text_muted"]), 110)
+        def pl(n, w): return f"{n} {w}" + ("s" if n != 1 else "")
+        g, cw, ch, cy = 16, (self.U - 32) // 3, 110, 100
+        body = self._sect("Contribution Streak")
+        metrics = [("Longest Streak", pl(streak["longest_streak"], "day"), self.t["accent_orange"]),
+                   ("Current Streak", pl(streak["current_streak"], "day"), self.t["accent_green"]),
+                   ("Contributions", str(streak["total_contributions"]), self.t["accent_purple"])]
         for i, (label, value, color) in enumerate(metrics):
             x = self.P + i * (cw + g)
-            body += self._box(x, cy, cw, ch)
-            body += self._txt(x + cw // 2, cy + 44, value, 28, color, bold=True, anchor="middle")
-            body += self._txt(x + cw // 2, cy + 74, label, 13, self.t["text_muted"], anchor="middle")
-
-        return self._svg(body, h)
+            body += self._box(x, cy, cw, ch) + "\n"
+            body += self._t(x + cw // 2, cy + 46, value, 30, color, bold=True, anchor="middle") + "\n"
+            body += self._t(x + cw // 2, cy + 78, label, 14, self.t["text_muted"], anchor="middle") + "\n"
+        return self._svg(body, cy + ch + 30)
 
     # ── Top Repos ──────────────────────────────────────────
     def render_top_repos(self, repos):
         if not repos:
-            return self._svg(self._txt(self.P, 50, "No repos", 15, self.t["text_muted"]), 100)
-
-        cols = 3
-        g = 16
+            return self._svg(self._t(self.P, 60, "No repos to display", 16, self.t["text_muted"]), 110)
+        cols, g = 3, 16
         cw = (self.U - g * (cols - 1)) // cols
-        ch = 110
-        cy = 90
+        ch, cy = 120, 100
         rows = (len(repos) + cols - 1) // cols
-        h = cy + rows * (ch + g) + 10
-
-        body = self._txt(self.P, 36, "Top Repositories", 20, self.t["text"], bold=True)
-        body += self._grad_bar(self.P, 46, 130, 3)
-
+        body = self._sect("Top Repositories")
         for i, repo in enumerate(repos):
-            row = i // cols
-            col = i % cols
+            row, col = i // cols, i % cols
             x = self.P + col * (cw + g)
             y = cy + row * (ch + g)
-
-            body += self._box(x, y, cw, ch)
-            body += self._txt(x + 16, y + 28, repo["name"], 16, self.t["accent"], bold=True)
-            desc = repo["description"][:45] + ("..." if len(repo["description"]) > 45 else "")
+            body += self._box(x, y, cw, ch) + "\n"
+            body += self._t(x + 18, y + 30, repo["name"], 17, self.t["accent"], bold=True) + "\n"
+            desc = repo["description"][:50] + ("..." if len(repo["description"]) > 50 else "")
             if desc:
-                body += self._txt(x + 16, y + 50, desc, 12, self.t["text_muted"])
-            body += self._txt(x + 16, y + 82, "\u2605 " + str(repo["stars"]), 13, self.t["accent_orange"])
+                body += self._t(x + 18, y + 54, desc, 13, self.t["text_muted"]) + "\n"
+            body += self._ts(x + 18, y + 88, "&#9733; ", str(repo["stars"]), 14, self.t["accent_orange"]) + "\n"
             if repo["language"]:
                 lc = LANG_COLORS.get(repo["language"], "#ccc")
-                body += f'<circle cx="{x + 80}" cy="{y + 77}" r="5" fill="{lc}"/>\n'
-                body += self._txt(x + 90, y + 82, repo["language"], 12, self.t["text_muted"])
-
-        return self._svg(body, h)
+                body += f'<circle cx="{x + 80}" cy="{y + 83}" r="5" fill="{lc}"/>\n'
+                body += self._t(x + 90, y + 88, repo["language"], 13, self.t["text_muted"]) + "\n"
+        return self._svg(body, cy + rows * (ch + g) + 8)
 
     # ── Activity ───────────────────────────────────────────
     def render_activity(self, events):
         events = [e for e in events if not (e["type"] == "PushEvent" and e.get("count", 0) == 0)]
         if not events:
-            return self._svg(self._txt(self.P, 50, "No recent activity", 15, self.t["text_muted"]), 100)
+            return self._svg(self._t(self.P, 60, "No recent activity", 16, self.t["text_muted"]), 110)
 
         lbl = {"PushEvent":"Pushed","IssuesEvent":"Opened issue","CreateEvent":"Created","WatchEvent":"Starred","ForkEvent":"Forked","PullRequestEvent":"Opened PR","IssueCommentEvent":"Commented","ReleaseEvent":"Released"}
         clr = {"PushEvent":self.t["accent_green"],"IssuesEvent":self.t["accent_red"],"CreateEvent":self.t["accent_purple"],"WatchEvent":self.t["accent_orange"],"ForkEvent":self.t["accent"],"PullRequestEvent":self.t["accent_green"],"IssueCommentEvent":self.t["accent_purple"],"ReleaseEvent":self.t["accent_orange"]}
 
-        rh = 56
-        cy = 90
-        h = cy + len(events) * rh + 14
-
-        body = self._txt(self.P, 36, "Recent Activity", 20, self.t["text"], bold=True)
-        body += self._grad_bar(self.P, 46, 130, 3)
-
+        rh, cy = 60, 100
+        body = self._sect("Recent Activity")
         for i, ev in enumerate(events):
             y = cy + i * rh
-            dc = clr.get(ev["type"], self.t["text_muted"])
             rn = ev["repo"].split("/")[-1] if "/" in ev["repo"] else ev["repo"]
             lb = lbl.get(ev["type"], ev["type"])
 
@@ -229,19 +195,19 @@ class Renderer:
             else:
                 dt = rn
 
+            dc = clr.get(ev["type"], self.t["text_muted"])
             body += f'<rect x="{self.P}" y="{y}" width="{self.U}" height="{rh-6}" rx="8" fill="{self.t["bg"]}" opacity="0.5"/>\n'
             body += f'<circle cx="{self.P+14}" cy="{y+(rh-6)//2}" r="5" fill="{dc}"/>\n'
-            body += self._txt(self.P+30, y+22, f"{lb} in {rn}", 14, self.t["text"], bold=True)
-            body += self._txt(self.P+30, y+40, dt, 12, self.t["text_muted"])
+            body += self._t(self.P+30, y+22, f"{lb} in {rn}", 14, self.t["text"], bold=True) + "\n"
+            body += self._t(self.P+30, y+42, dt, 13, self.t["text_muted"]) + "\n"
 
-        return self._svg(body, h)
+        return self._svg(body, cy + len(events) * rh + 14)
 
     # ── Combined ───────────────────────────────────────────
     def render_combined(self, svgs):
         import re
-        gap = 20
-        heights = []
-        total_h = 0
+        gap = 28
+        heights, total_h = [], 0
         for svg in svgs:
             m = re.search(r'height="(\d+)"', svg.split("\n")[0])
             h = int(m.group(1)) if m else 100
@@ -264,8 +230,9 @@ class Renderer:
                     continue
                 clean.append(line)
             h = heights.pop(0)
-            out += f'<g transform="translate(0,{y})">' + "\n".join(clean) + "</g>\n"
+            out += f'<g transform="translate(0,{y})">\n' + "\n".join(clean) + "\n</g>\n"
             y += h + gap
+
         out += "</svg>"
         return out
 
