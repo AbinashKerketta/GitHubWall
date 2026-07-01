@@ -1,0 +1,58 @@
+THEMES = {
+    "dark": {
+        "bg": "#0d1117",
+        "bg_card": "#161b22",
+        "bg_card_hover": "#1c2333",
+        "text": "#f0f6fc",
+        "text_muted": "#8b949e",
+        "accent": "#58a6ff",
+        "accent_green": "#3fb950",
+        "accent_orange": "#d29922",
+        "accent_red": "#f85149",
+        "accent_purple": "#bc8cff",
+        "accent_pink": "#f778ba",
+        "border": "#30363d",
+        "gradient_start": "#58a6ff",
+        "gradient_end": "#3fb950",
+        "bar_bg": "#21262d",
+    },
+    "light": {
+        "bg": "#ffffff",
+        "bg_card": "#f6f8fa",
+        "bg_card_hover": "#eef1f5",
+        "text": "#24292f",
+        "text_muted": "#656d76",
+        "accent": "#0969da",
+        "accent_green": "#1a7f37",
+        "accent_orange": "#9a6700",
+        "accent_red": "#cf222e",
+        "accent_purple": "#8250df",
+        "accent_pink": "#bf3989",
+        "border": "#d0d7de",
+        "gradient_start": "#0969da",
+        "gradient_end": "#1a7f37",
+        "bar_bg": "#e8ecf0",
+    },
+    "spotify": {
+        "bg": "#121212",
+        "bg_card": "#1a1a1a",
+        "bg_card_hover": "#222222",
+        "text": "#ffffff",
+        "text_muted": "#a0a0a0",
+        "accent": "#1db954",
+        "accent_green": "#1ed760",
+        "accent_orange": "#f39c12",
+        "accent_red": "#e74c3c",
+        "accent_purple": "#a855f7",
+        "accent_pink": "#f472b6",
+        "border": "#2a2a2a",
+        "gradient_start": "#1db954",
+        "gradient_end": "#a855f7",
+        "bar_bg": "#282828",
+    },
+}
+
+
+def get_theme(name="dark"):
+    t = THEMES.get(name, THEMES["dark"]).copy()
+    return t
